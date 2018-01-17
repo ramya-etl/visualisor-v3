@@ -1,0 +1,19 @@
+{
+  "name": "et-visualisor-v3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "start": "npm run gulp && concurrently \"npm run gulp-watch\" \"npm run serv\"",
+    "serv": "lite-server",
+    "gulp": "gulp",
+    "gulp-watch": "gulp watch"
+  },
+  "author": "",
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "lite-server": "^2.3.0"
+  }
+}

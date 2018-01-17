@@ -1,0 +1,101 @@
+.border-com {
+  border-radius: 4px;
+  border: 1px solid #868686; }
+
+button {
+  padding: 5px;
+  background: transparent;
+  cursor: pointer; }
+
+ul {
+  list-style-type: none;
+  padding: 0px 9px; }
+
+/* Legend Cells styling */
+.flex-display {
+  display: flex; }
+
+.legend {
+  height: 23px;
+  margin-right: 1px;
+  flex: 1; }
+
+.legend-block {
+  width: 275px;
+  float: left;
+  padding: 5px; }
+
+.legend-text {
+  font-size: smaller;
+  margin-left: 15px; }
+
+.cells-border {
+  border: 1px solid #ccceb1; }
+
+.legend-cell-1 {
+  background-color: #f7eeb2; }
+
+.legend-cell-2 {
+  background-color: #e4e993; }
+
+.legend-cell-3 {
+  background-color: #a2a565; }
+
+.legend-cell-4 {
+  background-color: #616340; }
+
+.legend-cell-5 {
+  background-color: #fdae61; }
+
+.legend-cell-6 {
+  background-color: #f46c41; }
+
+.legend-cell-7 {
+  background-color: #496b60; }
+
+.legend-cell-8 {
+  background-color: #a55d7b; }
+
+.legend-cell-9 {
+  background-color: #764559; }
+
+.legend-cell-10 {
+  background-color: #ff0000; }
+
+.legend-cell-11 {
+  background-color: #6f001b; }
+
+#heat-legend div.less,
+#heat-legend div.avg,
+#heat-legend div.more {
+  width: 95px; }
+
+/* HEATChart styles from JsonHeatChart directory */
+rect.bordered {
+  stroke: #FFFFFF;
+  stroke-width: 2px; }
+
+text.mono {
+  font-size: 9pt;
+  font-family: Consolas, courier;
+  fill: #aaa; }
+
+text.axis-workweek {
+  fill: #000; }
+
+text.axis-worktime {
+  fill: #000; }
+
+.dataset-button:focus {
+  background-color: transparent;
+  border-radius: 2px;
+  border: 1px solid #cecece;
+  padding: 5px; }
+
+div.tips-data {
+  position: absolute;
+  text-align: left;
+  width: 100px;
+  height: 75px;
+  font-size: 14px;
+  background: lightsteelblue; }

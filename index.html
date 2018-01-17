@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Exate Tech | Visualisor V3</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap DateTimePicker -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.datetimepicker.min.css">
+
+    <!-- Added for heatmap -->
+    <!-- https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css -->
+    <link rel="stylesheet" type="text/css" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/heatChart.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/donut.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/default.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="app single">
+    <div class="container">
+        <header id="app__header" class="col-lg-12 col-xs-12">
+            <div class="app__header--logo">
+                <a href="" title="Exate Tech Visualisor"></a>
+            </div>
+        </header>
+
+        <main class="app__main col-lg-12 col-xs-12">
+            <!-- App title: -->
+            <hr>
+            <div class="app__main--title">
+                <h1 class="col-lg-3 col-xs-12">Data Board</h1>
+                <div class="col-lg-3 col-xs-12">
+                    <div id="icon--search">
+                        <form id="search" class="icon--position">
+                            <input type="search" name="search">
+                            <span>
+                                <i class="fa fa-search fa-rotate-90"></i>
+                            </span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <!-- Drop-down pane: -->
+            <div class="app__main--dropdown col-lg-12 col-xs-12">
+                <i id="dropdown-icon-check" class="fa fa-check" aria-hidden="true" aria-expanded="true" title="Click to retrieve data once fields selected"></i>
+                <div class="dropdown-icons" title="click to toggle expand">
+                    <i class="fa fa-arrow-up" aria-hidden="true" aria-expanded="true"></i>
+                </div>
+                <div class="dropdown-list-header col-lg-2 col-xs-5">
+                    <hr class="dropdown-list-border">
+                    <h5 class="weight-font">Personnel</h5>
+                    <hr class="dropdown-list-border">
+                    <div class="dropdown-list-grp">
+                        <form action="">
+                            <div class="dropdown-each-item"><input type="checkbox" name="all" value="all" checked="">All<br></div>
+                            <div class="dropdown-each-item"><input type="checkbox" name="customers" value="customers">Customers<br></div>
+                            <div class="dropdown-each-item"><input type="checkbox" name="employees" value="employees">Employees</div>
+                        </form>
+                    </div>
+                </div>
+                <div class="dropdown-list-header col-lg-2 col-xs-5">
+                    <hr class="dropdown-list-border">
+                    <h5 class="weight-font">Data</h5>
+                    <hr class="dropdown-list-border">
+                    <div class="dropdown-list-grp">
+                        <form action="">
+                            <div class="dropdown-each-item"><input type="checkbox" name="all" value="all" checked="">All<br></div>
+                            <div class="dropdown-each-item"><input type="checkbox" name="customers" value="customers">PII<br></div>
+                            <div class="dropdown-each-item"><input type="checkbox" name="employees" value="employees">Confidential</div>
+                        </form>
+                    </div>
+                </div>
+                <div class="dropdown-list-header col-lg-2 col-xs-5">
+                    <hr class="dropdown-list-border">
+                    <h5 class="weight-font">Departments</h5>
+                    <hr class="dropdown-list-border">
+                    <div class="dropdown-list-grp">
+                        <form action="">
+                            <div class="dropdown-each-item"><input type="checkbox" name="all" value="all" checked="">All<br></div>
+                            <div class="dropdown-each-item"><input type="checkbox" name="customers" value="customers">HR<br></div>
+                            <div class="dropdown-each-item"><input type="checkbox" name="employees" value="employees">Risk</div>
+                        </form>
+                    </div>
+                </div>
+                <div class="dropdown-list-header col-lg-2 col-xs-5">
+                    <hr class="dropdown-list-border">
+                    <h5 class="weight-font">Region</h5>
+                    <hr class="dropdown-list-border">
+                    <div class="dropdown-list-grp">
+                        <form action="">
+                            <div class="dropdown-each-item"><input type="checkbox" name="all" value="all" checked="">All<br></div>
+                            <div class="dropdown-each-item"><input type="checkbox" name="customers" value="customers">EMEA<br></div>
+                            <div class="dropdown-each-item"><input type="checkbox" name="employees" value="employees">UK</div>
+                            <div class="dropdown-each-item"><input type="checkbox" name="employees" value="employees">Germany</div>
+                        </form>
+                    </div>
+                </div>
+                <div class="dropdown-list-header col-lg-2 col-xs-5">
+                    <hr class="dropdown-list-border">
+                    <h5 class="weight-font">Status</h5>
+                    <hr class="dropdown-list-border">
+                    <div class="dropdown-list-grp">
+                        <form action="">
+                            <div class="dropdown-each-item"><input type="checkbox" name="customers" value="customers">Accepted<br></div>
+                            <div class="dropdown-each-item"><input type="checkbox" name="employees" value="employees">Rejected</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendar Date Picker -->
+            <!-- From -->
+            <div class="app__main--calendar col-lg-4 col-xs-6">
+                <div class="form-group">
+                    <div class="input-group date" id="calendar-from">
+                        <input type="text" name="calendar1" class="form-control" placeholder="From">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- To -->
+            <div class="app__main--calendar col-lg-4 col-xs-6">
+                <div class="form-group">
+                    <div class="input-group date" id="calendar-to">
+                        <input type="text" name="calendar2" class="form-control" placeholder="To">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Tabs and Visualizing -->
+            <div id="filters" class="app__main--visualisor col-lg-12">
+                <button class="button active" data-filter=".heat">Heatmap</button>
+                <button class="button" data-filter=".apps">Applications</button>
+                <button class="button" data-filter=".users">Personnel</button>
+                <button class="button" data-filter=".reports">Reports</button>
+            </div>
+
+            <!-- Isotope Contents for the Above -->
+            <div class="col-lg-12 grid">
+                <div id="heat" class="element-item heat" data-category="heatmap">
+                    <div id="heat-chart"></div>
+                    <div class="datasets-picker button-group"></div>
+                </div>
+                <div class="element-item app apps" data-category="applications">
+                    <button class="btn btn-default active" type="button">CRM</button>
+                    <button class="btn btn-default" type="button">Sage</button>
+                    <button class="btn btn-default" type="button">Email</button>
+                    <button class="btn btn-default" type="button">Excel</button>
+                    <button class="btn btn-default" type="button">Marketing Max</button>
+                    <button class="btn btn-default" type="button">HR</button>
+                </div>
+                <div class="element-item user users" data-category="users">
+                    <div class="col-lg-12">
+                        <button class="btn btn-default active" type="button">All</button>
+                        <button class="btn btn-default" type="button">Executives (CEO/CTO)</button>
+                        <button class="btn btn-default" type="button">HR</button>
+                        <button class="btn btn-default" type="button">DPO</button>
+                    </div>
+                    <!-- Personnel Tab -->
+                    <!-- Row 1 -->
+                    <div class="visualisor__personnel col-lg-12 col-xs-12">
+                        <!-- personnel 1 -->
+                        <div class="col-lg-4 col-xs-12">
+                            <div class="pull-left">
+                                <div class="icons-personnel">
+                                    <div class="click-1a">
+                                        <i class="fa fa-low-vision" aria-hidden="true" title="Click for Status"></i>
+                                    </div>
+                                    <div class="info-1a-panel">
+                                        <hr class="app-border">
+                                        <div class="info-panel-heading">
+                                            <h6 class="pull-left app__header--h6">Status</h6>
+                                            <a class="to-close-1a" title="close"><i class="fa fa-close btn btn-default" aria-hidden="true"></i></a>
+                                        </div>
+                                        <hr class="app-border">
+                                        <p>Displays if the request accepted or rejected for this person!</p>
+                                    </div>
+                                </div>
+                                <div class="icons-personnel">
+                                    <div class="click-1b">
+                                        <i class="fa fa-file" aria-hidden="true" title="Click for Reports"></i>
+                                    </div>
+                                    <div class="info-1b-panel">
+                                        <hr class="app-border">
+                                        <div class="info-panel-heading">
+                                            <h6 class="pull-left app__header--h6">Individual report</h6>
+                                            <a class="to-close-1b" title="close"><i class="fa fa-close btn btn-default" aria-hidden="true"></i></a>
+                                        </div>
+                                        <hr class="app-border">
+                                        <p>This data can be fetched to view the report of the employee or business by the authorized personnel. <br> View to be rejected if not authorized. <br> Data.....</p>
+                                    </div>
+                                </div>
+                                <div class="icons-personnel">
+                                    <a class="icon2"><i class="fa fa-address-card" aria-hidden="true" title="PII/Confidential"></i></a>
+                                    <div class="pii-on-hover">
+                                        <p>Name: </p>
+                                        <p>Address: </p>
+                                        <p>Contact: </p>
+                                        <p>Department: CEO</p>
+                                        <p>Salary: </p>
+                                        <p>Passport: </p>
+                                        <p>Region of workplace: </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="personnel-mt"><img src="assets/imgs/b1.jpeg" class="margin-left-1em"></div>
+                        </div>
+                        <!-- personnel 2 -->
+                        <div class="col-lg-4 col-xs-12">
+                            <div class="pull-left">
+                                <div class="icons-personnel">
+                                    <div class="click-2a">
+                                        <i class="fa fa-low-vision" aria-hidden="true" title="Click for Status"></i>
+                                    </div>
+                                    <div class="info-2a-panel">
+                                        <hr class="app-border">
+                                        <div class="info-panel-heading">
+                                            <h6 class="pull-left app__header--h6">Status</h6>
+                                            <a class="to-close-2a" title="close"><i class="fa fa-close btn btn-default" aria-hidden="true"></i></a>
+                                        </div>
+                                        <hr class="app-border">
+                                        <p>Displays if the request accepted or rejected for this person!</p>
+                                    </div>
+                                </div>
+                                <div class="icons-personnel">
+                                    <div class="click-2b">
+                                        <i class="fa fa-file" aria-hidden="true" title="Click for Reports"></i>
+                                    </div>
+                                    <div class="info-2b-panel">
+                                        <hr class="app-border">
+                                        <div class="info-panel-heading">
+                                            <h6 class="pull-left app__header--h6">Individual report</h6>
+                                            <a class="to-close-2b" title="close"><i class="fa fa-close btn btn-default" aria-hidden="true"></i></a>
+                                        </div>
+                                        <hr class="app-border">
+                                        <p>This data can be fetched to view the report of the employee or business by the authorized personnel. <br> View to be rejected if not authorized. <br> Data.....</p>
+                                    </div>
+                                </div>
+                                <div class="icons-personnel">
+                                    <a class="icon2"><i class="fa fa-address-card" aria-hidden="true" title="PII/Confidential"></i></a>
+                                    <div class="pii-on-hover">
+                                        <p>Name: </p>
+                                        <p>Address: </p>
+                                        <p>Contact: </p>
+                                        <p>Department: CEO</p>
+                                        <p>Salary: </p>
+                                        <p>Passport: </p>
+                                        <p>Region of workplace: </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="personnel-mt"><img src="assets/imgs/g1.jpg" class="margin-left-1em"></div>
+                        </div>
+                        <!-- Personnel 3 -->
+                        <div class="col-lg-4 col-xs-12">
+                            <div class="pull-left">
+                                <div class="icons-personnel">
+                                    <div class="click-3a">
+                                        <i class="fa fa-low-vision" aria-hidden="true" title="Click for Status"></i>
+                                    </div>
+                                    <div class="info-3a-panel">
+                                        <hr class="app-border">
+                                        <div class="info-panel-heading">
+                                            <h6 class="pull-left app__header--h6">Status</h6>
+                                            <a class="to-close-3a" title="close"><i class="fa fa-close btn btn-default" aria-hidden="true"></i></a>
+                                        </div>
+                                        <hr class="app-border">
+                                        <p>Displays if the request accepted or rejected for this person!</p>
+                                    </div>
+                                </div>
+                                <div class="icons-personnel">
+                                    <div class="click-3b">
+                                        <i class="fa fa-file" aria-hidden="true" title="Click for Reports"></i>
+                                    </div>
+                                    <div class="info-3b-panel">
+                                        <hr class="app-border">
+                                        <div class="info-panel-heading">
+                                            <h6 class="pull-left app__header--h6">Individual report</h6>
+                                            <a class="to-close-3b" title="close"><i class="fa fa-close btn btn-default" aria-hidden="true"></i></a>
+                                        </div>
+                                        <hr class="app-border">
+                                        <p>This data can be fetched to view the report of the employee or business by the authorized personnel. <br> View to be rejected if not authorized. <br> Data.....</p>
+                                    </div>
+                                </div>
+                                <div class="icons-personnel">
+                                    <a class="icon2"><i class="fa fa-address-card" aria-hidden="true" title="PII/Confidential"></i></a>
+                                    <div class="pii-on-hover">
+                                        <p>Name: </p>
+                                        <p>Address: </p>
+                                        <p>Contact: </p>
+                                        <p>Department: CEO</p>
+                                        <p>Salary: </p>
+                                        <p>Passport: </p>
+                                        <p>Region of workplace: </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="personnel-mt"><img src="assets/imgs/b1.jpeg" class="margin-left-1em"></div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="visualisor__personnel col-lg-12 col-xs-12">
+                        <!-- personnel 4 -->
+                        <div class="col-lg-4 col-xs-12">
+                            <div class="pull-left">
+                                <div class="icons-personnel">
+                                    <div class="click-4a">
+                                        <i class="fa fa-low-vision" aria-hidden="true" title="Click for Status"></i>
+                                    </div>
+                                    <div class="info-4a-panel">
+                                        <hr class="app-border">
+                                        <div class="info-panel-heading">
+                                            <h6 class="pull-left app__header--h6">Status</h6>
+                                            <a class="to-close-4a" title="close"><i class="fa fa-close btn btn-default" aria-hidden="true"></i></a>
+                                        </div>
+                                        <hr class="app-border">
+                                        <p>Displays if the request accepted or rejected for this person!</p>
+                                    </div>
+                                </div>
+                                <div class="icons-personnel">
+                                    <div class="click-4b">
+                                        <i class="fa fa-file" aria-hidden="true" title="Click for Reports"></i>
+                                    </div>
+                                    <div class="info-4b-panel">
+                                        <hr class="app-border">
+                                        <div class="info-panel-heading">
+                                            <h6 class="pull-left app__header--h6">Individual report</h6>
+                                            <a class="to-close-4b" title="close"><i class="fa fa-close btn btn-default" aria-hidden="true"></i></a>
+                                        </div>
+                                        <hr class="app-border">
+                                        <p>This data can be fetched to view the report of the employee or business by the authorized personnel. <br> View to be rejected if not authorized. <br> Data.....</p>
+                                    </div>
+                                </div>
+                                <div class="icons-personnel">
+                                    <a class="icon2"><i class="fa fa-address-card" aria-hidden="true" title="PII/Confidential"></i></a>
+                                    <div class="pii-on-hover">
+                                        <p>Name: </p>
+                                        <p>Address: </p>
+                                        <p>Contact: </p>
+                                        <p>Department: CEO</p>
+                                        <p>Salary: </p>
+                                        <p>Passport: </p>
+                                        <p>Region of workplace: </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="personnel-mt"><img src="assets/imgs/g1.jpg" class="margin-left-1em"></div>
+                        </div>
+                        <!-- personnel 2 -->
+                        <div class="col-lg-4 col-xs-12">
+                            <div class="pull-left">
+                                <div class="icons-personnel">
+                                    <div class="click-2a">
+                                        <i class="fa fa-low-vision" aria-hidden="true" title="Click for Status"></i>
+                                    </div>
+                                    <div class="info-2a-panel">
+                                        <hr class="app-border">
+                                        <div class="info-panel-heading">
+                                            <h6 class="pull-left app__header--h6">Status</h6>
+                                            <a class="to-close-2a" title="close"><i class="fa fa-close btn btn-default" aria-hidden="true"></i></a>
+                                        </div>
+                                        <hr class="app-border">
+                                        <p>Displays if the request accepted or rejected for this person!</p>
+                                    </div>
+                                </div>
+                                <div class="icons-personnel">
+                                    <div class="click-2b">
+                                        <i class="fa fa-file" aria-hidden="true" title="Click for Reports"></i>
+                                    </div>
+                                    <div class="info-2b-panel">
+                                        <hr class="app-border">
+                                        <div class="info-panel-heading">
+                                            <h6 class="pull-left app__header--h6">Individual report</h6>
+                                            <a class="to-close-2b" title="close"><i class="fa fa-close btn btn-default" aria-hidden="true"></i></a>
+                                        </div>
+                                        <hr class="app-border">
+                                        <p>This data can be fetched to view the report of the employee or business by the authorized personnel. <br> View to be rejected if not authorized. <br> Data.....</p>
+                                    </div>
+                                </div>
+                                <div class="icons-personnel">
+                                    <a class="icon2"><i class="fa fa-address-card" aria-hidden="true" title="PII/Confidential"></i></a>
+                                    <div class="pii-on-hover">
+                                        <p>Name: </p>
+                                        <p>Address: </p>
+                                        <p>Contact: </p>
+                                        <p>Department: CEO</p>
+                                        <p>Salary: </p>
+                                        <p>Passport: </p>
+                                        <p>Region of workplace: </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="personnel-mt"><img src="assets/imgs/g1.jpg" class="margin-left-1em"></div>
+                        </div>
+                        <!-- Personnel 3 -->
+                        <div class="col-lg-4 col-xs-12">
+                            <div class="pull-left">
+                                <div class="icons-personnel">
+                                    <div class="click-3a">
+                                        <i class="fa fa-low-vision" aria-hidden="true" title="Click for Status"></i>
+                                    </div>
+                                    <div class="info-3a-panel">
+                                        <hr class="app-border">
+                                        <div class="info-panel-heading">
+                                            <h6 class="pull-left app__header--h6">Status</h6>
+                                            <a class="to-close-3a" title="close"><i class="fa fa-close btn btn-default" aria-hidden="true"></i></a>
+                                        </div>
+                                        <hr class="app-border">
+                                        <p>Displays if the request accepted or rejected for this person!</p>
+                                    </div>
+                                </div>
+                                <div class="icons-personnel">
+                                    <div class="click-3b">
+                                        <i class="fa fa-file" aria-hidden="true" title="Click for Reports"></i>
+                                    </div>
+                                    <div class="info-3b-panel">
+                                        <hr class="app-border">
+                                        <div class="info-panel-heading">
+                                            <h6 class="pull-left app__header--h6">Individual report</h6>
+                                            <a class="to-close-3b" title="close"><i class="fa fa-close btn btn-default" aria-hidden="true"></i></a>
+                                        </div>
+                                        <hr class="app-border">
+                                        <p>This data can be fetched to view the report of the employee or business by the authorized personnel. <br> View to be rejected if not authorized. <br> Data.....</p>
+                                    </div>
+                                </div>
+                                <div class="icons-personnel">
+                                    <a class="icon2"><i class="fa fa-address-card" aria-hidden="true" title="PII/Confidential"></i></a>
+                                    <div class="pii-on-hover">
+                                        <p>Name: </p>
+                                        <p>Address: </p>
+                                        <p>Contact: </p>
+                                        <p>Department: CEO</p>
+                                        <p>Salary: </p>
+                                        <p>Passport: </p>
+                                        <p>Region of workplace: </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="personnel-mt"><img src="assets/imgs/b1.jpeg" class="margin-left-1em"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="element-item report reports" data-category="reports">
+                    <button class="btn btn-default active" type="button">Pending Consent Report</button>
+                    <button class="btn btn-default" type="button">CISO Report</button>
+                    <button class="btn btn-default" type="button">Minors Consent Report</button>
+                    <button class="btn btn-default" type="button">Individuals Report</button>
+                    <button class="btn btn-default" type="button">Attributes Report</button>
+                    <button class="btn btn-default" type="button">Applications Report</button>
+                    <button class="btn btn-default" type="button">People deviating from normal behaviour</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="col-lg-12 col-xs-12">
+            <div>
+                <p>All contents are copyright protected &copy; 2018 | Exate Technology</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+
+    <!-- Bootstrap DateTime Picker -->
+    <script type="text/javascript" src="assets/js/moment.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.datetimepicker.min.js"></script>
+
+    <!-- Scrolling Nav JavaScript -->
+    <script src="assets/js/jquery.easing.min.js"></script>
+
+    <!-- isotope filtering -->
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/isotope.js"></script>
+
+    <!-- added for heatmap -->
+    <!-- <script src="assets/js/charts/d3v4.min.js"></script> -->
+    <script src="assets/js/charts/d3v3.min.js"></script>
+    <script src="assets/js/charts/heat.js"></script>
+    <script src="assets/js/charts/d3tip.js"></script>
+    <script src="assets/js/charts/donut.js"></script>
+
+    <script src="assets/js/appjq3.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('#calendar-from').datetimepicker();
+            $('#calendar-to').datetimepicker({
+                useCurrent: false
+            });
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+body {
+  font-family: "tahoma, verdana";
+  height: 100%; }
+
+button {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px; }
+
+.custom-h6 {
+  margin: 0 auto;
+  padding: 0px 18px; }
+
+.datasets-picker input {
+  margin-right: 5px; }
+
+.dp-pad-left {
+  padding-left: 0; }
+
+#et-data-board:hover {
+  border: 0;
+  border-bottom: 2px solid #ccc;
+  box-shadow: 0px 2px #eee; }
+
+.grp-personnel {
+  margin-top: 40px !important; }
+
+.icons-personnel {
+  padding: 5px;
+  margin-bottom: 4px;
+  width: 29px;
+  height: 35px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border: 1px solid #CCC; }
+
+img {
+  max-width: 100%;
+  height: auto; }
