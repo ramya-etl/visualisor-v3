@@ -46,7 +46,6 @@ var heatChart = function(tsv) {
   },
 
   function(error, data) {
-    // tooltip 05122017:
     var tip = d3.tip()
       .attr("class", "d3-tool-tips")
       .offset([-10, 0])
@@ -100,10 +99,6 @@ var heatChart = function(tsv) {
       .style("fill", colors[0])
       .on("mouseover", tip.show)
       .on("mouseout", tip.hide);
-
-      /*var t = d3.transition().duration(2500).ease(d3.easeLinear);*/
-      /*var t = d3.transform("rotateY(180deg)");*/
-      /*var t = d3.transition().duration(1000);*/
 
     cards.transition().duration(1000)
       .style("fill", function(d) { return colorScale(d.value); });
