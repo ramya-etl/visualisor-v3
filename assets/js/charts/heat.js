@@ -8,7 +8,7 @@ var margin = { top: 50, right: 0, bottom: 50, left: 30 },
     days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
     times = ["1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "12am", 
             "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm", "12pm"];
-    datasets = ["assets/sets/data1.tsv", "assets/sets/data2.tsv"];
+    datasets = ["assets/sets/data1.csv", "assets/sets/data2.csv"];
 
 var svg = d3.select("#heat-chart").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -36,23 +36,28 @@ var timeLabels = svg.selectAll(".timeLabel")
       .attr("transform", "translate(" + gridSize / 2 + ", -6)")
       .attr("class", function(d, i) { return ((i >= 7 && i <= 17) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
 
-var heatChart = function(tsv) {
-  d3.tsv(tsv, function(d) {
+var heatChart = function(dataset) {
+  d3.csv(dataset, function(d) {
+    var parseDate = d3.time.format("%Y-%m-%dT%H:%M:%S").parse;
+
     return {
       day: +d.day,
       hour: +d.hour,
-      value: +d.value
+      value: +d.value,
+      date: parseDate(d.date)
     };
   },
 
   function(error, data) {
+    // tooltip 05122017:
     var tip = d3.tip()
       .attr("class", "d3-tool-tips")
       .offset([-10, 0])
       .html(function(d) {
         return "<strong>Value</strong> - " + d.value + "<br>" 
                 + "<strong>Day</strong> - " + d.day + "<br>" 
-                + "<strong>Hour</strong> - " + d.hour;
+                + "<strong>Hour</strong> - " + d.hour + "<br>"
+                + "<strong>Date</strong> - " + d.date
     });
 
     var colorScale = d3.scale.quantile()
@@ -99,6 +104,10 @@ var heatChart = function(tsv) {
       .style("fill", colors[0])
       .on("mouseover", tip.show)
       .on("mouseout", tip.hide);
+
+      /*var t = d3.transition().duration(2500).ease(d3.easeLinear);*/
+      /*var t = d3.transform("rotateY(180deg)");*/
+      /*var t = d3.transition().duration(1000);*/
 
     cards.transition().duration(1000)
       .style("fill", function(d) { return colorScale(d.value); });
